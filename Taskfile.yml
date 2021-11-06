@@ -1,0 +1,9 @@
+version: "3"
+
+tasks:
+  proto:
+    desc: Build required protos
+    cmds:
+      - sudo PATH="$GOBIN" protoc -I=./protos/ ./protos/api.proto --go_out=.
+      - sudo PATH="$GOBIN" protoc -I=./protos/ ./protos/core/balance_contract.proto --go_out=.
+      - sudo PATH="$GOBIN" protoc -I=./protos/ ./protos/api.proto --go-grpc_out=.
